@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://code.jquery.com/jquery.js"></script>
 
   <script></script>
   <script></script>
@@ -15,19 +16,19 @@
 
 <body>
 
-  <h1></h1>
+  <h1>Survey Questions</h1>
   <h2>About You</h2>
   <form action="/" method="POST">
   
     Full Name :<br>
-  <input type="text" name="firstname"><br>
+  <input id="name" type="text" name="firstname" required placeholder="Name"><br>
     Link to image of yourself:<br>
-  <input type="text" name="image-link">
+  <input id="image" type="text" name="image-link" required placeholder="link address">
 
 
     <p>Question 1</p>
     <p></p>
-    <select id="surveyQone">
+    <select class="surveyQuestion">
       <option>Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -39,7 +40,7 @@
 
     <p>Question 2</p>
     <p></p>
-    <select id="surveyQtwo">
+    <select class="surveyQuestion">
       <option>Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -51,7 +52,7 @@
 
     <p>Question 3</p>
     <p></p>
-    <select id="surveyQthree">
+    <select class="surveyQuestion">
       <option>Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -63,7 +64,7 @@
 
     <p>Question 4</p>
     <p></p>
-    <select id="surveyQfour">
+    <select class="surveyQuestion">
       <option>Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -75,7 +76,7 @@
 
     <p>Question 5</p>
     <p></p>
-    <select id="surveyQfive">
+    <select class="surveyQuestion">
       <option>Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -88,7 +89,7 @@
 
     <p>Question 6</p>
     <p></p>
-    <select id="surveyQsix">
+    <select class="surveyQuestion">
       <option>Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -101,7 +102,7 @@
 
     <p>Question 7</p>
     <p></p>
-    <select id="surveyQseven">
+    <select class="surveyQuestion">
       <option>Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -113,7 +114,7 @@
 
     <p>Question 8</p>
     <p></p>
-    <select id="surveyQeight">
+    <select class="surveyQuestion">
       <option>Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -125,7 +126,7 @@
 
     <p>Question 9</p>
     <p></p>
-    <select id="surveyQnine">
+    <select class="surveyQuestion">
         <option>Select choice</option>
         <option value="1">(strongly disagree)</option>
         <option value="2">(disagree)</option>
@@ -136,14 +137,14 @@
 
       <p>Question 10</p>
       <p></p>
-      <select id="surveyQten">
+      <select class="surveyQuestion">
         <option>Select choice</option>
         <option value="1">(strongly disagree)</option>
         <option value="2">(disagree)</option>
         <option value="3">(neutral)</option>
         <option value="4">(agree)</option>
         <option value="5">(strongly agree)</option>
-      </select>
+      </select> <br>
 
 
       <input id="surveySubmitBtn"  type="submit" value="Submit">
@@ -154,27 +155,47 @@
   <script>
 
     $(document).ready(function(){
-
-      $("#surveySubmitBtn").click(function(){
-        $("surverQone").val()
-        $("surverQtwo").val()
-        $("surverQthree").val()
-        $("surverQfour").val()
-        $("surverQfive").val()
-        $("surverQsix").val()
-        $("surverQseven").val()
-        $("surverQeight").val()
-        $("surverQnine").val()
-        $("surverQten").val()
+     
+      $("#surveySubmitBtn").click(function(event){
+        event.preventDefault();
 
 
-        answers = $(".surveyQuestion").val()
-        var values = []
+        // $("surverQone").val()
+        // $("surverQtwo").val()
+        // $("surverQthree").val()
+        // $("surverQfour").val()
+        // $("surverQfive").val()
+        // $("surverQsix").val()
+        // $("surverQseven").val()
+        // $("surverQeight").val()
+        // $("surverQnine").val()
+        // $("surverQten").val()
+
+
+        var answers = $("select.surveyQuestion > option").val()
+        
         for(var i = 0; i < answers.length;i++){
+          var values =[]
           values += answers[i].value
           console.log(values)
+          console.log(answers)
         }
 
+        var newFriend = {
+          name: $("#name").val().trim(),
+          photo: $("#image").val().trim(),
+          score: values
+        }
+
+         $.post("/api/friends", newFriend,function(data){
+    
+         console.log("survey.html", data)
+         console.log("Adding friends...")
+
+         $("#name").val("")
+         $("#image").val("")
+         })
+        // exports.module = newFriend
       })
 
     })
