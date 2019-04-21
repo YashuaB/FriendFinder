@@ -172,13 +172,14 @@
         // $("surverQten").val()
 
 
-        var answers = $("select.surveyQuestion > option").val()
-        
+        var answers = $("select.surveyQuestion  option:selected")
+        var values =[]
         for(var i = 0; i < answers.length;i++){
-          var values =[]
-          values += answers[i].value
+          // need an if statement to check if value is not a number to not put it in score
+         
+          values.push(answers[i].value)
           console.log(values)
-          console.log(answers)
+          console.log(answers[i])
         }
 
         var newFriend = {
