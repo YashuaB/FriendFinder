@@ -174,12 +174,17 @@
 
         var answers = $("select.surveyQuestion  option:selected")
         var values =[]
+        var surveyAnsw;
         for(var i = 0; i < answers.length;i++){
           // need an if statement to check if value is not a number to not put it in score
+          surveyAnsw = parseInt(answers[i].value)
+
+         if(Number.isInteger(surveyAnsw)){
          
-          values.push(answers[i].value)
+          values.push(surveyAnsw)
           console.log(values)
-          console.log(answers[i])
+         }
+         
         }
 
         var newFriend = {
