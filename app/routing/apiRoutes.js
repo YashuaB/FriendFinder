@@ -32,17 +32,22 @@ module.exports = function(app){
     }
 
     for(var i = 0 ; i < friends.length;i++){
-      var fr = friends[i] 
+     
+      var fr = friends[i]
+      console.log("the friends list")
+      console.log(fr)
       var currentScore = 0;
       console.log("this is the scores")
-      console.log(fr.scores)
+      //console.log(fr.scores[j])
       console.log("this is the length of the scores")
       console.log(fr.scores.length)
 
       for(var j = 0; j < fr.scores.length;j++){
-        console.log(fr.scores.length)
-       currentScore +=  Math.abs(fr.scores[j] - newFriend.score[j]) 
-      //  console.log(currentScore)
+      
+       var newFriendScore = parseInt(newFriend.score[j])
+       currentScore +=  Math.abs(fr.scores[j] - newFriendScore) 
+       console.log("this is the current score")
+        console.log(currentScore)
       }
    
       if(currentScore < bestMatch.score ){
@@ -54,7 +59,7 @@ module.exports = function(app){
    
    // res.json(bestMatch)
     console.log(bestMatch)
-   console.log(newFriend)
+   //console.log(newFriend)
    
     // res.json(newFriend)
     friends.push(newFriend)
