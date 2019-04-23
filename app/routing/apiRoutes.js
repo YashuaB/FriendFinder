@@ -3,44 +3,60 @@
 var friends = require("../data/friends")
 // var friendPlus = require("../public/survey.html")
 
+
+
 module.exports = function(app){
 
   app.get("/api/friends", function(req, res) {
 
    res.json(friends)
-   console.log(req.body)
   });
   
   
   app.post("/api/friends", function(req,res){
 
-    var newFriend = req.body
     
-    for( var i = 0 ; i < friends.length;i++){
+    // for( var i = 0 ; i < friends.length;i++){
 
-      if(newFriend.score[i] !== friends[i].score[i])
-      newFriend.score[i] - friends[i].score[i]
-    }
-
-
+    //   if(newFriend.score[i] !== friends[i].score[i])
+    //   newFriend.score[i] - friends[i].score[i]
+    // }
+    var newFriend = req.body
 
     friends.push(newFriend)
-    console.log(req.body)
+
+    var bestMatch = {
+      name: "",
+      photo: "",
+      score: 100,
+      
+    }
+
+    for(var i = 0 ; i < friends.length;i++){
+      var fr = friends[i] 
+      var currentScore = 0;
+      
+      for(var j = 0; j < fr.scores.length;j++){
+        console.log(fr.scores.length)
+       currentScore +=  Math.abs(fr.scores[j] - newFriend.score[j]) 
+      //  console.log(currentScore)
+      }
    
-    res.json(newFriend)
-    res.json(true)
+      if(currentScore < bestMatch.score ){
+        bestMatch.name = fr.name
+        bestMatch.photo = fr.photo
+        bestMatch.score = currentScore
+      }
+   }
+   
+   // res.json(bestMatch)
+    console.log(bestMatch)
+   console.log(newFriend)
+   
+    // res.json(newFriend)
+   
+    res.json(bestMatch)
 
-    
-    
   })
-
-// if value[i] of arr1 is not equal to value[i] of arr2 then add those values and push new value to a new array
-
-
-  // .then(function(data){
-  //   console.log("survey.html", data)
-  //   console.log("Adding friends...")
-  // })
-  
   
 }

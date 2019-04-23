@@ -5,13 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="/assets/style.css">
   <script src="https://code.jquery.com/jquery.js"></script>
+ 
 
-  <script></script>
-  <script></script>
-  <script></script>
 
-  <title>Document</title>
+  <title>Friend Finder</title>
 </head>
 
 <body>
@@ -150,6 +149,8 @@
       <input id="surveySubmitBtn"  type="submit" value="Submit">
   </form>
 
+  <div class="modal-body"></div>
+
 
 
   <script>
@@ -159,24 +160,11 @@
       $("#surveySubmitBtn").click(function(event){
         event.preventDefault();
 
-
-        // $("surverQone").val()
-        // $("surverQtwo").val()
-        // $("surverQthree").val()
-        // $("surverQfour").val()
-        // $("surverQfive").val()
-        // $("surverQsix").val()
-        // $("surverQseven").val()
-        // $("surverQeight").val()
-        // $("surverQnine").val()
-        // $("surverQten").val()
-
-
         var answers = $("select.surveyQuestion  option:selected")
         var values =[]
         var surveyAnsw;
         for(var i = 0; i < answers.length;i++){
-          // need an if statement to check if value is not a number to not put it in score
+         
           surveyAnsw = parseInt(answers[i].value)
 
          if(Number.isInteger(surveyAnsw)){
@@ -184,7 +172,6 @@
           values.push(surveyAnsw)
           console.log(values)
          }
-         
         }
 
         var newFriend = {
@@ -193,13 +180,40 @@
           score: values
         }
 
+
+
          $.post("/api/friends", newFriend,function(data){
     
+
+          console.log("this console log is the data")
+          console.log(data)
+
+
+
+
+          var modalDiv = `<div id="myModal" class="modal">
+                                    <div class="modal-content">
+                                 <span class="close">&times;</span>
+                                     <p>Some text in the Modal..</p>
+                                     <p>${data.name}</p>
+                                     <img src="${data.photo}">
+                                    </div>
+
+                                    </div>`
+          $(".modal").css({display:"block"})
+          $(".modal-body").append(modalDiv)
+
          console.log("survey.html", data)
          console.log("Adding friends...")
 
          $("#name").val("")
          $("#image").val("")
+
+         })
+
+
+         $(".close").click(function(){
+           $(".modal").css({display:"block"})
          })
         // exports.module = newFriend
       })
