@@ -158,13 +158,17 @@
     $(document).ready(function () {
       
        // var answers = $("select.surveyQuestion  option:selected")
-       var values = []
-        var surveyAnsw;
+       
         // var newFriend = {
         //   name: $("#name").val().trim(),
         //   photo: $("#image").val().trim(),
         //   scores: values
         // }
+       
+        var surveyAnsw;
+
+        var values = []
+
         var newFriend = {
 				name: $("#name").val().trim(),
 				photo: $("#image").val().trim(),
@@ -187,14 +191,20 @@
 				// photo: $("#image").val().trim(),
         // scores: values }
         
-        var valid = true;
+        var valid = true
+
         if ($("#name").val() === "" || $("#photo").val() === "") {
-        var valid = false;
-          alert("fill in all fields")
-        } if ($(".question1").val() === "Select choice" || $(".question2").val() === "Select choice" || $(".question3").val() === "Select choice" || $(".question4").val() === "Select choice" || $(".question5").val() === "Select choice" || $(".question6").val() === "Select choice" || $(".question7").val() === "Select choice" || $(".question8").val() === "Select choice" || $(".question9").val() === "Select choice" || $(".question10").val() === "Select choice") {
-        var valid = false;
+        var valid = false
+       alert("fill in all fields")
+
+        } 
+        
+        if ($(".question1").val() === "Select choice" || $(".question2").val() === "Select choice" || $(".question3").val() === "Select choice" || $(".question4").val() === "Select choice" || $(".question5").val() === "Select choice" || $(".question6").val() === "Select choice" || $(".question7").val() === "Select choice" || $(".question8").val() === "Select choice" || $(".question9").val() === "Select choice" || $(".question10").val() === "Select choice") {
+        var valid = false
+
           alert("fill in all fields")
         }
+
         if (valid === true) {
           values = [
             $(".question1").val(),
@@ -208,20 +218,26 @@
             $(".question9").val(),
             $(".question10").val()
           ]
+
+          for (var i = 0; i < values.length; i++) {
+
+surveyAnsw = parseInt(values[i].value)
+
+if (Number.isInteger(surveyAnsw)) {
+
+  values.push(surveyAnsw)
+  console.log(values)
+}
+}
         }
         console.log(values)
 
+        newFriend = {
+				name: $("#name").val().trim(),
+				photo: $("#image").val().trim(),
+        scores: values }
 
-        for (var i = 0; i < values.length; i++) {
-
-          surveyAnsw = parseInt(values[i].value)
-
-          if (Number.isInteger(surveyAnsw)) {
-
-            values.push(surveyAnsw)
-            console.log(values)
-          }
-        }
+        
 
 
 

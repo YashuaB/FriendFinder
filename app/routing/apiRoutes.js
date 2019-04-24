@@ -37,7 +37,9 @@ module.exports = function(app){
       console.log(fr)
       var currentScore = 0;
       console.log("this is the scores")
-      //console.log(fr.scores[j])
+      console.log(fr.scores)
+      console.log("this is new friend score")
+      console.log(newFriend.scores)
       console.log("this is the length of the scores")
       console.log(fr.scores.length)
 
