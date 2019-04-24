@@ -22,12 +22,11 @@ module.exports = function(app){
     //   newFriend.score[i] - friends[i].score[i]
     // }
     var newFriend = req.body
-
     
     var bestMatch = {
       name: "",
       photo: "",
-      score: 100,
+      scores: 100,
       
     }
 
@@ -43,17 +42,17 @@ module.exports = function(app){
       console.log(fr.scores.length)
 
       for(var j = 0; j < fr.scores.length;j++){
-      
-       var newFriendScore = parseInt(newFriend.score[j])
-       currentScore +=  Math.abs(fr.scores[j] - newFriendScore) 
+     
+      // var newFriendScore = parseInt(newFriend.scores[j])
+       currentScore +=  Math.abs(fr.scores[j] - newFriend.scores[j]) 
        console.log("this is the current score")
         console.log(currentScore)
       }
    
-      if(currentScore < bestMatch.score ){
+      if(currentScore < bestMatch.scores ){
         bestMatch.name = fr.name
         bestMatch.photo = fr.photo
-        bestMatch.score = currentScore
+        bestMatch.scores = currentScore
       }
    }
    
