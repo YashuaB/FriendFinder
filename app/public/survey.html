@@ -27,7 +27,7 @@
 
     <p>Question 1</p>
     <p></p>
-    <select class="surveyQuestion">
+    <select class="question1"> 
       <option value="Select choice">Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -39,7 +39,7 @@
 
     <p>Question 2</p>
     <p></p>
-    <select class="surveyQuestion">
+    <select class="question2">
       <option value="Select choice">Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -51,7 +51,7 @@
 
     <p>Question 3</p>
     <p></p>
-    <select class="surveyQuestion">
+    <select class="question3">
       <option value="Select choice">Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -63,7 +63,7 @@
 
     <p>Question 4</p>
     <p></p>
-    <select class="surveyQuestion">
+    <select class="question4">
       <option value="Select choice">Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -75,7 +75,7 @@
 
     <p>Question 5</p>
     <p></p>
-    <select class="surveyQuestion">
+    <select class="question5">
       <option value="Select choice">Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -88,7 +88,7 @@
 
     <p>Question 6</p>
     <p></p>
-    <select class="surveyQuestion">
+    <select class="question6">
       <option value="Select choice">Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -101,7 +101,7 @@
 
     <p>Question 7</p>
     <p></p>
-    <select class="surveyQuestion">
+    <select class="question7">
       <option value="Select choice">Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -113,7 +113,7 @@
 
     <p>Question 8</p>
     <p></p>
-    <select class="surveyQuestion">
+    <select class="question8">
       <option value="Select choice">Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -125,7 +125,7 @@
 
     <p>Question 9</p>
     <p></p>
-    <select class="surveyQuestion">
+    <select class="question9">
       <option value="Select choice">Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -136,7 +136,7 @@
 
     <p>Question 10</p>
     <p></p>
-    <select class="surveyQuestion">
+    <select class="question10">
       <option value="Select choice">Select choice</option>
       <option value="1">(strongly disagree)</option>
       <option value="2">(disagree)</option>
@@ -156,24 +156,65 @@
   <script>
 
     $(document).ready(function () {
+      
+       // var answers = $("select.surveyQuestion  option:selected")
+       var values = []
+        var surveyAnsw;
+        // var newFriend = {
+        //   name: $("#name").val().trim(),
+        //   photo: $("#image").val().trim(),
+        //   scores: values
+        // }
+        var newFriend = {
+				name: $("#name").val().trim(),
+				photo: $("#image").val().trim(),
+        scores: values }
 
       $("#surveySubmitBtn").click(function (event) {
         event.preventDefault();
 
 
-        var answers = $("select.surveyQuestion  option:selected")
-        var values = []
-        var surveyAnsw;
-        var newFriend = {
-          name: $("#name").val().trim(),
-          photo: $("#image").val().trim(),
-          scores: values
+        // // var answers = $("select.surveyQuestion  option:selected")
+        // var values = []
+        // var surveyAnsw;
+        // // var newFriend = {
+        // //   name: $("#name").val().trim(),
+        // //   photo: $("#image").val().trim(),
+        // //   scores: values
+        // // }
+        // var newFriend = {
+				// name: $("#name").val().trim(),
+				// photo: $("#image").val().trim(),
+        // scores: values }
+        
+        var valid = true;
+        if ($("#name").val() === "" || $("#photo").val() === "") {
+        var valid = false;
+          alert("fill in all fields")
+        } if ($(".question1").val() === "Select choice" || $(".question2").val() === "Select choice" || $(".question3").val() === "Select choice" || $(".question4").val() === "Select choice" || $(".question5").val() === "Select choice" || $(".question6").val() === "Select choice" || $(".question7").val() === "Select choice" || $(".question8").val() === "Select choice" || $(".question9").val() === "Select choice" || $(".question10").val() === "Select choice") {
+        var valid = false;
+          alert("fill in all fields")
         }
+        if (valid === true) {
+          values = [
+            $(".question1").val(),
+            $(".question2").val(),
+            $(".question3").val(),
+            $(".question4").val(),
+            $(".question5").val(),
+            $(".question6").val(),
+            $(".question7").val(),
+            $(".question8").val(),
+            $(".question9").val(),
+            $(".question10").val()
+          ]
+        }
+        console.log(values)
 
 
-        for (var i = 0; i < answers.length; i++) {
+        for (var i = 0; i < values.length; i++) {
 
-          surveyAnsw = parseInt(answers[i].value)
+          surveyAnsw = parseInt(values[i].value)
 
           if (Number.isInteger(surveyAnsw)) {
 
@@ -181,74 +222,30 @@
             console.log(values)
           }
         }
-        // for( var i =0; i< answers.length;i++){
-        //   var answVal = answers.val()
-        //   console.log(answVal)
-        //   console.log(answVal[i])
 
-        //   if(answVal[i] === "Select choice"){
-        //   alert("please select all answers")
-        // event.preventDefault()
-        // }
-        // }
-        var valid = true;
-        if ($("#name").val() === "" || $("#image").val() === "") {
-          valid = false;
-          // if not valid call modal with text data
-        //  modal("Hi", "Please enter name", "thank you")
-          alert("please select all answers")
-        } else if (answers.val() === "Select choice") {
-          valid = false;
-          alert("please select all answers")
-        }
 
-        var modalDiv = `<div id="myModal" class="modal">
-                                    <div class="modal-content">
-                                 <span class="close">&times;</span>
-                                     <p>Some text in the Modal..</p>
-                                     <p>${data.name}</p>
-                                     <img src="${data.photo}">
-                                    </div>
 
-                                    </div>`
-          $(".modal").css({display:"block"})
-          $(".modal-body").append(modalDiv)
-          $(".close").click(function () {
-          $(".modal").css({ display: "none" })
-        })
+
+        $.post("/api/friends", newFriend, function (data) {
+        console.log("this the data")
+        console.log(data)
+        console.log("survey.html", data)
+        console.log("Adding friends...")
+        $("#name").val("")
+        $("#image").val("")
+      })
           
+
+
+
+      })
+
+     
 
         
 
 
 
-        $.post("/api/friends", newFriend, function (data) {
-          console.log("this the data")
-          console.log(data)
-          console.log("survey.html", data)
-          console.log("Adding friends...")
-          $("#name").val("")
-          $("#image").val("")
-
-
-
-        //   var modalDiv = `<div id="myModal" class="modal">
-        //                             <div class="modal-content">
-        //                          <span class="close">&times;</span>
-        //                              <p>Some text in the Modal..</p>
-        //                              <p>${data.name}</p>
-        //                              <img src="${data.photo}">
-        //                             </div>
-
-        //                             </div>`
-        //   $(".modal").css({display:"block"})
-        //   $(".modal-body").append(modalDiv)
-        //   $(".close").click(function () {
-        //   $(".modal").css({ display: "none" })
-        // })
-          
-         // modal("hi","hi", "hi")
-        })
 
 //         function modal(text, text2, text3) {
 //           var modalDiv = `
@@ -269,14 +266,14 @@
 //           $(".close").click(function () {
 //             $(".modal").css({ display: "none" })
 //           })
-       // }
+//        }
 
         
         // exports.module = newFriend
         
       })
-
-    })
+    
+   
 
 
   </script>
