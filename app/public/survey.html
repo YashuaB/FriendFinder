@@ -149,7 +149,19 @@ I prefer variety to routine.</p>
     <input id="surveySubmitBtn" type="submit" value="Submit">
   </form>
 
-  <div class="modal-body"></div> 
+  <div class="modal-body">
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+      <span class="close">&times;</span>
+      <h1>Your Friend Match is!</h1>
+      <h2 id="bestFriend"></h2>
+      
+      <img id="bestFriendPhoto"
+      src="">
+      </div>
+      
+      </div>
+  </div> 
 
 
 
@@ -177,6 +189,28 @@ I prefer variety to routine.</p>
       $("#surveySubmitBtn").click(function (event) {
         event.preventDefault();
 
+//                   var modalDiv = `
+// <div id="myModal" class="modal">
+// <div class="modal-content">
+// <span class="close">&times;</span>
+// <p>Some text in the Modal..</p>
+// <p id=""></p>
+// <p></p>
+// <img id="bestFriendPhoto"
+// src="">
+// </div>
+
+// </div>`
+          // $(".modal").css({ display: "block" })
+          // $(".modal-body").append(modalDiv)
+
+
+          // $(".close").click(function () {
+          //   $(".modal").css({ display: "none" })
+          // })
+
+        
+			
 
         // // var answers = $("select.surveyQuestion  option:selected")
         // var values = []
@@ -237,16 +271,20 @@ if (Number.isInteger(surveyAnsw)) {
 				photo: $("#image").val().trim(),
         scores: values }
 
-        
-
-
+        $(".modal").css({ display: "block" })
+        $(".close").click(function () {
+            $(".modal").css({ display: "none" })
+          })
 
 
         $.post("/api/friends", newFriend, function (data) {
+          $("#bestFriend").text(data.name);
+				$("#bestFriendPhoto").attr("src", data.photo);
         console.log("this the data")
         console.log(data)
         console.log("survey.html", data)
         console.log("Adding friends...")
+        console.log(data.name,data.photo)
         $("#name").val("")
         $("#image").val("")
       })

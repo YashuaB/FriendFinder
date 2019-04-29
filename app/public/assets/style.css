@@ -32,3 +32,8 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+#bestFriendPhoto{
+  width: 300px;
+  height: 350px;
+}
