@@ -5,8 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="/assets/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  
   <script src="https://code.jquery.com/jquery.js"></script>
 
 
@@ -15,323 +17,249 @@
 </head>
 
 <body>
-  <div class="container">
-  <h1>Survey Questions</h1>
-  <h2>About You</h2>
-  <form action="/" method="POST">
+  <div class="survey-container">
+    <h1>Survey Questions</h1>
+    <h2>About You</h2>
+    <form action="/" method="POST">
+      <!-- Text fields -->
+      Full Name :<br>
+      <input id="name" type="text" name="firstname" required placeholder="Name"><br>
+      Link to image of yourself:<br>
+      <input id="image" type="text" name="image-link" required placeholder="link address">
 
-    Full Name :<br>
-    <input id="name" type="text" name="firstname" required placeholder="Name"><br>
-    Link to image of yourself:<br>
-    <input id="image" type="text" name="image-link" required placeholder="link address">
+      <!-- Section for profile questions -->
 
-
-    
-    <p><strong>Question 1</strong><br>I make friends easily. </p>
-    <select class="question1"> 
-      <option value="Select choice">Select choice</option>
-      <option value="1">(strongly disagree)</option>
-      <option value="2">(disagree)</option>
-      <option value="3">(neutral)</option>
-      <option value="4">(agree)</option>
-      <option value="5">(strongly agree)</option>
-    </select>
-
-
-    <p><strong>Question 2</strong><br>I have a vivid imagination.</p>
-    <select class="question2">
-      <option value="Select choice">Select choice</option>
-      <option value="1">(strongly disagree)</option>
-      <option value="2">(disagree)</option>
-      <option value="3">(neutral)</option>
-      <option value="4">(agree)</option>
-      <option value="5">(strongly agree)</option>
-    </select>
+      <p><strong>Question 1</strong><br>I make friends easily. </p>
+      <select class="question1">
+        <option value="Select choice">Select choice</option>
+        <option value="1">(strongly disagree)</option>
+        <option value="2">(disagree)</option>
+        <option value="3">(neutral)</option>
+        <option value="4">(agree)</option>
+        <option value="5">(strongly agree)</option>
+      </select>
 
 
-    <p>    <strong>Question 3</strong><br>
-I worry about things.</p>
-    <select class="question3">
-      <option value="Select choice">Select choice</option>
-      <option value="1">(strongly disagree)</option>
-      <option value="2">(disagree)</option>
-      <option value="3">(neutral)</option>
-      <option value="4">(agree)</option>
-      <option value="5">(strongly agree)</option>
-    </select>
+      <p><strong>Question 2</strong><br>I have a vivid imagination.</p>
+      <select class="question2">
+        <option value="Select choice">Select choice</option>
+        <option value="1">(strongly disagree)</option>
+        <option value="2">(disagree)</option>
+        <option value="3">(neutral)</option>
+        <option value="4">(agree)</option>
+        <option value="5">(strongly agree)</option>
+      </select>
 
 
-    <p>    <strong>Question 4</strong><br>
-I love large parties.</p>
-    <select class="question4">
-      <option value="Select choice">Select choice</option>
-      <option value="1">(strongly disagree)</option>
-      <option value="2">(disagree)</option>
-      <option value="3">(neutral)</option>
-      <option value="4">(agree)</option>
-      <option value="5">(strongly agree)</option>
-    </select>
+      <p> <strong>Question 3</strong><br>
+        I worry about things.</p>
+      <select class="question3">
+        <option value="Select choice">Select choice</option>
+        <option value="1">(strongly disagree)</option>
+        <option value="2">(disagree)</option>
+        <option value="3">(neutral)</option>
+        <option value="4">(agree)</option>
+        <option value="5">(strongly agree)</option>
+      </select>
 
 
-    <p>    <strong>Question 5</strong><br>
-I believe in the importance of art.</p>
-    <select class="question5">
-      <option value="Select choice">Select choice</option>
-      <option value="1">(strongly disagree)</option>
-      <option value="2">(disagree)</option>
-      <option value="3">(neutral)</option>
-      <option value="4">(agree)</option>
-      <option value="5">(strongly agree)</option>
-    </select>
+      <p> <strong>Question 4</strong><br>
+        I love large parties.</p>
+      <select class="question4">
+        <option value="Select choice">Select choice</option>
+        <option value="1">(strongly disagree)</option>
+        <option value="2">(disagree)</option>
+        <option value="3">(neutral)</option>
+        <option value="4">(agree)</option>
+        <option value="5">(strongly agree)</option>
+      </select>
 
 
-
-    <p>    <strong>Question 6</strong><br>
-I get angry easily.  </p>
-    <select class="question6">
-      <option value="Select choice">Select choice</option>
-      <option value="1">(strongly disagree)</option>
-      <option value="2">(disagree)</option>
-      <option value="3">(neutral)</option>
-      <option value="4">(agree)</option>
-      <option value="5">(strongly agree)</option>
-    </select>
+      <p> <strong>Question 5</strong><br>
+        I believe in the importance of art.</p>
+      <select class="question5">
+        <option value="Select choice">Select choice</option>
+        <option value="1">(strongly disagree)</option>
+        <option value="2">(disagree)</option>
+        <option value="3">(neutral)</option>
+        <option value="4">(agree)</option>
+        <option value="5">(strongly agree)</option>
+      </select>
 
 
 
-    <p>    <strong>Question 7</strong><br>
-I take charge. </p>
-    <select class="question7">
-      <option value="Select choice">Select choice</option>
-      <option value="1">(strongly disagree)</option>
-      <option value="2">(disagree)</option>
-      <option value="3">(neutral)</option>
-      <option value="4">(agree)</option>
-      <option value="5">(strongly agree)</option>
-    </select>
+      <p> <strong>Question 6</strong><br>
+        I get angry easily. </p>
+      <select class="question6">
+        <option value="Select choice">Select choice</option>
+        <option value="1">(strongly disagree)</option>
+        <option value="2">(disagree)</option>
+        <option value="3">(neutral)</option>
+        <option value="4">(agree)</option>
+        <option value="5">(strongly agree)</option>
+      </select>
 
 
-    <p>    <strong>Question 8</strong><br>
-I experience my emotions intensely. </p>
-    <select class="question8">
-      <option value="Select choice">Select choice</option>
-      <option value="1">(strongly disagree)</option>
-      <option value="2">(disagree)</option>
-      <option value="3">(neutral)</option>
-      <option value="4">(agree)</option>
-      <option value="5">(strongly agree)</option>
-    </select>
+
+      <p> <strong>Question 7</strong><br>
+        I take charge. </p>
+      <select class="question7">
+        <option value="Select choice">Select choice</option>
+        <option value="1">(strongly disagree)</option>
+        <option value="2">(disagree)</option>
+        <option value="3">(neutral)</option>
+        <option value="4">(agree)</option>
+        <option value="5">(strongly agree)</option>
+      </select>
 
 
-    <p><strong>Question 9</strong><br>
-I am always busy.   </p>
-    <select class="question9">
-      <option value="Select choice">Select choice</option>
-      <option value="1">(strongly disagree)</option>
-      <option value="2">(disagree)</option>
-      <option value="3">(neutral)</option>
-      <option value="4">(agree)</option>
-      <option value="5">(strongly agree)</option>
-    </select>
-
-    <p><strong>Question 10</strong><br>
-I prefer variety to routine.</p>
-    <select class="question10">
-      <option value="Select choice">Select choice</option>
-      <option value="1">(strongly disagree)</option>
-      <option value="2">(disagree)</option>
-      <option value="3">(neutral)</option>
-      <option value="4">(agree)</option>
-      <option value="5">(strongly agree)</option>
-    </select> <br>
+      <p> <strong>Question 8</strong><br>
+        I experience my emotions intensely. </p>
+      <select class="question8">
+        <option value="Select choice">Select choice</option>
+        <option value="1">(strongly disagree)</option>
+        <option value="2">(disagree)</option>
+        <option value="3">(neutral)</option>
+        <option value="4">(agree)</option>
+        <option value="5">(strongly agree)</option>
+      </select>
 
 
-    <input id="surveySubmitBtn" type="submit" value="Submit">
-  </form>
+      <p> <strong>Question 9</strong><br>
+        I am always busy. </p>
+      <select class="question9">
+        <option value="Select choice">Select choice</option>
+        <option value="1">(strongly disagree)</option>
+        <option value="2">(disagree)</option>
+        <option value="3">(neutral)</option>
+        <option value="4">(agree)</option>
+        <option value="5">(strongly agree)</option>
+      </select>
 
-  <div class="modal-body">
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-      <span class="close">&times;</span>
-      <h1>Your Friend Match is!</h1>
-      <h2 id="bestFriend"></h2>
-      
-      <img id="bestFriendPhoto"
-      src="">
+      <p> <strong>Question 10</strong><br>
+        I prefer variety to routine.</p>
+      <select class="question10">
+        <option value="Select choice">Select choice</option>
+        <option value="1">(strongly disagree)</option>
+        <option value="2">(disagree)</option>
+        <option value="3">(neutral)</option>
+        <option value="4">(agree)</option>
+        <option value="5">(strongly agree)</option>
+      </select> <br>
+
+      <!-- Submit button for survey -->
+      <input id="surveySubmitBtn" type="submit" value="Submit">
+
+    </form>
+    <!-- Modal for friend match -->
+    <div class="modal-body">
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1>Your Friend Match is!</h1>
+          <h2 id="bestFriend"></h2>
+
+          <!-- Image of friend match -->
+          <img id="bestFriendPhoto" src="">
+        </div>
+
       </div>
-      
-      </div>
-  </div> 
+    </div>
 
+<!-- JavaScript for survey form -->
 
+    <script>
 
-  <script>
+      $(document).ready(function () {
 
-    $(document).ready(function () {
-      
-       // var answers = $("select.surveyQuestion  option:selected")
-       
-        // var newFriend = {
-        //   name: $("#name").val().trim(),
-        //   photo: $("#image").val().trim(),
-        //   scores: values
-        // }
-       
+        //Empty variable for user answers
         var surveyAnsw;
-
+        // Empty array for storing values from form
         var values = []
 
+        //Creating object for containing valuess from the user input 
         var newFriend = {
-				name: $("#name").val().trim(),
-				photo: $("#image").val().trim(),
-        scores: values }
-
-      $("#surveySubmitBtn").click(function (event) {
-        event.preventDefault();
-
-//                   var modalDiv = `
-// <div id="myModal" class="modal">
-// <div class="modal-content">
-// <span class="close">&times;</span>
-// <p>Some text in the Modal..</p>
-// <p id=""></p>
-// <p></p>
-// <img id="bestFriendPhoto"
-// src="">
-// </div>
-
-// </div>`
-          // $(".modal").css({ display: "block" })
-          // $(".modal-body").append(modalDiv)
-
-
-          // $(".close").click(function () {
-          //   $(".modal").css({ display: "none" })
-          // })
-
-        
-			
-
-        // // var answers = $("select.surveyQuestion  option:selected")
-        // var values = []
-        // var surveyAnsw;
-        // // var newFriend = {
-        // //   name: $("#name").val().trim(),
-        // //   photo: $("#image").val().trim(),
-        // //   scores: values
-        // // }
-        // var newFriend = {
-				// name: $("#name").val().trim(),
-				// photo: $("#image").val().trim(),
-        // scores: values }
-        
-        var valid = true
-
-        if ($("#name").val() === "" || $("#photo").val() === "") {
-        var valid = false
-       alert("fill in all fields")
-
-        } 
-        
-        if ($(".question1").val() === "Select choice" || $(".question2").val() === "Select choice" || $(".question3").val() === "Select choice" || $(".question4").val() === "Select choice" || $(".question5").val() === "Select choice" || $(".question6").val() === "Select choice" || $(".question7").val() === "Select choice" || $(".question8").val() === "Select choice" || $(".question9").val() === "Select choice" || $(".question10").val() === "Select choice") {
-        var valid = false
-
-          alert("fill in all fields")
+          name: $("#name").val().trim(),
+          photo: $("#image").val().trim(),
+          scores: values
         }
+        // event handler for clicking the survey button
+        $("#surveySubmitBtn").click(function (event) {
+          event.preventDefault();
 
-        if (valid === true) {
-          values = [
-            $(".question1").val(),
-            $(".question2").val(),
-            $(".question3").val(),
-            $(".question4").val(),
-            $(".question5").val(),
-            $(".question6").val(),
-            $(".question7").val(),
-            $(".question8").val(),
-            $(".question9").val(),
-            $(".question10").val()
-          ]
 
-          for (var i = 0; i < values.length; i++) {
+          //Form validation making sure form fields aren't empty befor being submitted
+          var valid = true
 
-surveyAnsw = parseInt(values[i].value)
+          if ($("#name").val() === "" || $("#photo").val() === "") {
+            var valid = false
+            alert("fill in all fields")
+          }
 
-if (Number.isInteger(surveyAnsw)) {
+          if ($(".question1").val() === "Select choice" || $(".question2").val() === "Select choice" || $(".question3").val() === "Select choice" || $(".question4").val() === "Select choice" || $(".question5").val() === "Select choice" || $(".question6").val() === "Select choice" || $(".question7").val() === "Select choice" || $(".question8").val() === "Select choice" || $(".question9").val() === "Select choice" || $(".question10").val() === "Select choice") {
+            var valid = false
 
-  values.push(surveyAnsw)
-  console.log(values)
-}
-}
-        }
-        console.log(values)
+            alert("fill in all fields")
+          }
 
-        newFriend = {
-				name: $("#name").val().trim(),
-				photo: $("#image").val().trim(),
-        scores: values }
-
-        $(".modal").css({ display: "block" })
-        $(".close").click(function () {
+          if (valid === true) {
+            values = [
+              $(".question1").val(),
+              $(".question2").val(),
+              $(".question3").val(),
+              $(".question4").val(),
+              $(".question5").val(),
+              $(".question6").val(),
+              $(".question7").val(),
+              $(".question8").val(),
+              $(".question9").val(),
+              $(".question10").val()
+            ]
+            //Looping thru values for each survey answer
+            for (var i = 0; i < values.length; i++) {
+              // Parsing the value of the survey answers from a string into a number
+              surveyAnsw = parseInt(values[i].value)
+              // Conditional to check the values are a number 
+              if (Number.isInteger(surveyAnsw)) {
+                //pushing the values from values variable to surveyAnsw after the condition pass
+                values.push(surveyAnsw)
+                console.log(values)
+              }
+            }
+          }
+          console.log(values)
+          //
+          newFriend = {
+            name: $("#name").val().trim(),
+            photo: $("#image").val().trim(),
+            scores: values
+          }
+          //Displaying  modal when the submit button is click
+          $(".modal").css({ display: "block" })
+          //Function to close modal
+          $(".close").click(function () {
             $(".modal").css({ display: "none" })
           })
 
+          //
+          $.post("/api/friends", newFriend, function (data) {
+            $("#bestFriend").text(data.name);
+            $("#bestFriendPhoto").attr("src", data.photo);
+            console.log("this the data")
+            console.log(data)
+            console.log("survey.html", data)
+            console.log("Adding friends...")
+            console.log(data.name, data.photo)
+            $("#name").val("")
+            $("#image").val("")
+          })
 
-        $.post("/api/friends", newFriend, function (data) {
-          $("#bestFriend").text(data.name);
-				$("#bestFriendPhoto").attr("src", data.photo);
-        console.log("this the data")
-        console.log(data)
-        console.log("survey.html", data)
-        console.log("Adding friends...")
-        console.log(data.name,data.photo)
-        $("#name").val("")
-        $("#image").val("")
+        })
+
       })
-          
 
-
-
-      })
-
-     
-
-        
-
-
-
-
-//         function modal(text, text2, text3) {
-//           var modalDiv = `
-// <div id="myModal" class="modal">
-// <div class="modal-content">
-// <span class="close">&times;</span>
-// <p>Some text in the Modal..</p>
-// <p>${text}</p>
-// <p>${text2}</p>
-// <img src="${text3}">
-// </div>
-
-// </div>`
-//           $(".modal").css({ display: "block" })
-//           $(".modal-body").append(modalDiv)
-
-
-//           $(".close").click(function () {
-//             $(".modal").css({ display: "none" })
-//           })
-//        }
-
-        
-        // exports.module = newFriend
-        
-      })
-    
-   
-
-
-  </script>
-</div>
+    </script>
+  </div>
 
 </body>
 

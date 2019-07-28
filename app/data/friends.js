@@ -1,4 +1,4 @@
-
+// An array of objects for of each friend profile
 
 var friends = [{
 
