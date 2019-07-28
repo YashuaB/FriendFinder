@@ -1,25 +1,38 @@
 # FriendFinder
-
-Friend Finder
 Are you looking for some new friends? This is the place for you then. Checkout this  survey and find your new best friend.
+## Demo
+Demo of app: [Friend-finder](https://arcane-brook-59829.herokuapp.com/)
 
-Live Site: https://arcane-brook-59829.herokuapp.com/
 
+![friend-finder](app/public/assets/images/finderImg.png)
+## Built With
+* Node.js
 
-Technologies Used:
+### Prerequisites
+Things you need to install the software and how to install them
+
+```
 Node.js
-npm
-Express
-Required npm Packages:
-Express - node framework
-Body-Parser - used to request body parsing
-Install Instructions for local use:
-clone repository with SSH using:
+```
+### Installing
+To run the application locally, first clone this repository with the following command.
+```
 git clone https://github.com/YashuaB/FriendFinder
-Install the dependencies stated in the package.JSON file by:
+```
+Next, install the application dependencies.
+
+```
+cd FriendFinder
 npm install
+```
+
+
+Now, open the local application on port 3000 at the URL: http://localhost:8080/.
+
 Congrats! The app is now ready to use!
+
 How to Use:
+
 Survey
 Select a response for each question based on if you strongly disagree to strongly agree.
 Friend finder compares each question response to all database friends' responses.
