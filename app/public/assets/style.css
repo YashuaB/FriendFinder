@@ -1,7 +1,9 @@
 body{
   background-color: #fafaff;
 }
-
+h1,h2,form{
+  padding-left: 20px;
+}
 .container, .survey-container{
   background-color: #c7dcdc;
   box-shadow: 10px 10px 5px grey;
@@ -10,6 +12,7 @@ body{
   width: 50%;
   position: relative;
   top: 60px;
+  left: 26%;
 }
 
 .title{
